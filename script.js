@@ -20,6 +20,11 @@ function flashRainbow(callback) {
     var colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9600d3'];
     var i = 0;
     var interval = setInterval(function () {
+        document.body.style.backgroundColor = colors[i];
+        i = (i + 1) % colors.length;
+    }, 200);
+    setTimeout(function () {
+        clearInterval(interval);
         document.body.style.backgroundColor = '';
         if (callback) {
             callback();
